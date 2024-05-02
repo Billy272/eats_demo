@@ -56,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            const SizedBox(width: 10),
             Container(
                 padding: const EdgeInsets.only(bottom: 50),
                 child: IconButton(
