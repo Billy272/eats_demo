@@ -33,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
+        toolbarHeight: 80,
         title: Row(
           children: <Widget>[
             const Spacer(),
@@ -41,10 +42,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.search),
                   hintText: 'Uber Eats Demo Search...',
-                  filled: true,
                   hintStyle: const TextStyle(color: Colors.black12),
+                  filled: true,
+                  fillColor: const Color.fromARGB(31, 68, 67, 67),
+                  //change height of search bar
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
