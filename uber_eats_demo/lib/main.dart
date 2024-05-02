@@ -36,11 +36,16 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Row(
           children: <Widget>[
             const Spacer(),
-            const Expanded(
+            Expanded(
               child: TextField(
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   hintText: 'Uber Eats Demo Search...',
+                  filled: true,
+                  hintStyle: const TextStyle(color: Colors.black12),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
                 ),
               ),
             ),
