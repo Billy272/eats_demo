@@ -36,7 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
         toolbarHeight: 80,
         title: Row(
           children: <Widget>[
-            const Spacer(),
             Expanded(
               child: TextField(
                 decoration: InputDecoration(
@@ -44,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   hintText: 'Uber Eats Demo Search...',
                   hintStyle: const TextStyle(color: Colors.black12),
                   filled: true,
-                  fillColor: const Color.fromARGB(31, 68, 67, 67),
+                  fillColor: const Color.fromARGB(255, 133, 131, 131),
                   //change height of search bar
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -55,17 +54,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            const Spacer(),
             IconButton(
               icon: const Icon(Icons.notifications),
+              color: const Color.fromARGB(255, 133, 131, 131),
               onPressed: () {},
             )
           ],
         ),
       ),
-      body: const Center(
-        child: Text('Hello, World!'),
-      ),
+      body: const Center(),
     );
   }
 }
