@@ -33,32 +33,36 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        toolbarHeight: 80,
+        toolbarHeight: 85,
         title: Row(
           children: <Widget>[
             Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.search),
-                  hintText: 'Uber Eats Demo Search...',
-                  hintStyle: const TextStyle(color: Colors.black12),
-                  filled: true,
-                  fillColor: const Color.fromARGB(255, 133, 131, 131),
-                  //change height of search bar
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none,
+              child: SizedBox(
+                height: 30,
+                child: TextField(
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.search),
+                    hintText: 'Uber Eats Demo Search...',
+                    hintStyle: const TextStyle(color: Colors.black12),
+                    filled: true,
+                    fillColor: const Color.fromARGB(255, 133, 131, 131),
+                    contentPadding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    ),
                   ),
                 ),
               ),
             ),
-            IconButton(
-              icon: const Icon(Icons.notifications),
-              color: const Color.fromARGB(255, 133, 131, 131),
-              onPressed: () {},
-            )
+            Container(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: IconButton(
+                  icon: const Icon(Icons.notifications),
+                  color: const Color.fromARGB(255, 133, 131, 131),
+                  onPressed: () {},
+                ))
           ],
         ),
       ),
