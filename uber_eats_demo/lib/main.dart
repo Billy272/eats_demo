@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Uber Eats Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -31,7 +32,25 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Uber Eats Demo'),
+        backgroundColor: Colors.black,
+        title: Row(
+          children: <Widget>[
+            const Spacer(),
+            const Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  hintText: 'Uber Eats Demo Search...',
+                ),
+              ),
+            ),
+            const Spacer(),
+            IconButton(
+              icon: const Icon(Icons.notifications),
+              onPressed: () {},
+            )
+          ],
+        ),
       ),
       body: const Center(
         child: Text('Hello, World!'),
