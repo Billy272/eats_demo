@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Uber Eats Demo'),
+      home: const HomeScreen(),
     );
   }
 }
@@ -51,6 +51,21 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.home),
             backgroundColor: Color.fromARGB(255, 0, 0, 0),
             label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            backgroundColor: Color.fromARGB(255, 0, 0, 0),
+            label: "Search",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            backgroundColor: Color.fromARGB(255, 0, 0, 0),
+            label: "Cart",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            backgroundColor: Color.fromARGB(255, 0, 0, 0),
+            label: "Profile",
           ),
         ],
       ),
