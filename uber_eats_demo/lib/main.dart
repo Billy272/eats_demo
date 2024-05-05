@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uber_eats_demo/CartScreen.dart';
-import 'package:uber_eats_demo/SearchScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +33,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _children = [
     const HomeScreen(),
     const SearchScreen(),
-    const CartScreen()
+    const CartScreen(),
+    const ProfileScreen()
   ];
 
   void onTabTapped(int index) {
@@ -118,5 +117,32 @@ class HomeScreen extends StatelessWidget {
       ),
       body: const Center(),
     );
+  }
+}
+
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
