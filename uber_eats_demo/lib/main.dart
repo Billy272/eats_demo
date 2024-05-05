@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uber_eats_demo/CartScreen.dart';
+import 'package:uber_eats_demo/SearchScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +32,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
 
-  final List<Widget> _children = [const HomeScreen()];
+  final List<Widget> _children = [
+    const HomeScreen(),
+    const SearchScreen(),
+    const CartScreen()
+  ];
 
   void onTabTapped(int index) {
     setState(() {
@@ -61,12 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.shopping_cart),
             backgroundColor: Color.fromARGB(255, 0, 0, 0),
             label: "Cart",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            backgroundColor: Color.fromARGB(255, 0, 0, 0),
-            label: "Profile",
-          ),
+          )
         ],
       ),
     );
