@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +71,7 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: const Center(
-        child: Text('Home Screen Content'),
-      ),
+      body: _buildBody(),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -75,12 +80,12 @@ class MyHomePage extends StatelessWidget {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.apple),
+            icon: Icon(Icons.apple_sharp),
             backgroundColor: Colors.black,
             label: "Grocery",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.manage_search),
             backgroundColor: Colors.black,
             label: "Search",
           ),
@@ -95,85 +100,42 @@ class MyHomePage extends StatelessWidget {
             label: "Profile",
           ),
         ],
-        selectedItemColor: const Color.fromARGB(255, 255, 255, 255),
-        unselectedItemColor: const Color.fromARGB(255, 133, 131, 131),
-        currentIndex: 0,
+        selectedItemColor: Colors.blue,
+        currentIndex: _currentIndex,
         onTap: (index) {
-          if (index == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const MyHomePage()),
-            );
-          } else if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const GroceryScreen()),
-            );
-          } else if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SearchScreen()),
-            );
-          } else if (index == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CartScreen()),
-            );
-          } else if (index == 4) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ProfileScreen()),
-            );
-          }
+          setState(() {
+            _currentIndex = index;
+          });
         },
       ),
     );
   }
+
+  Widget _buildBody() {
+    switch (_currentIndex) {
+      case 0:
+        return const HomeScreen();
+      case 1:
+        return const GroceryScreen();
+      case 2:
+        return const SearchScreen();
+      case 3:
+        return const CartScreen();
+      case 4:
+        return const ProfileScreen();
+      default:
+        return Container();
+    }
+  }
 }
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        toolbarHeight: 85,
-        title: Row(
-          children: <Widget>[
-            Expanded(
-              child: SizedBox(
-                height: 30,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: 'Uber Eats Demo Search...',
-                    hintStyle: const TextStyle(color: Colors.black12),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 133, 131, 131),
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Container(
-                padding: const EdgeInsets.only(bottom: 50),
-                child: IconButton(
-                  icon: const Icon(Icons.notifications),
-                  color: const Color.fromARGB(255, 133, 131, 131),
-                  onPressed: () {},
-                ))
-          ],
-        ),
-      ),
-      body: const Center(),
+    return const Center(
+      child: Text('Home Screen Content'),
     );
   }
 }
@@ -183,138 +145,41 @@ class GroceryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        toolbarHeight: 85,
-        title: Row(
-          children: <Widget>[
-            Expanded(
-              child: SizedBox(
-                height: 30,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: 'Uber Eats Demo Search...',
-                    hintStyle: const TextStyle(color: Colors.black12),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 133, 131, 131),
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Container(
-                padding: const EdgeInsets.only(bottom: 50),
-                child: IconButton(
-                  icon: const Icon(Icons.notifications),
-                  color: const Color.fromARGB(255, 133, 131, 131),
-                  onPressed: () {},
-                ))
-          ],
-        ),
-      ),
-      body: const Center(),
+    return const Center(
+      child: Text('Grocery Screen Content'),
+    );
+  }
+}
+
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Search Screen Content'),
     );
   }
 }
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        toolbarHeight: 85,
-        title: Row(
-          children: <Widget>[
-            Expanded(
-              child: SizedBox(
-                height: 30,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: 'Uber Eats Demo Search...',
-                    hintStyle: const TextStyle(color: Colors.black12),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 133, 131, 131),
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Container(
-                padding: const EdgeInsets.only(bottom: 50),
-                child: IconButton(
-                  icon: const Icon(Icons.notifications),
-                  color: const Color.fromARGB(255, 133, 131, 131),
-                  onPressed: () {},
-                ))
-          ],
-        ),
-      ),
-      body: const Center(),
+    return const Center(
+      child: Text('Cart Screen Content'),
     );
   }
 }
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        toolbarHeight: 85,
-        title: Row(
-          children: <Widget>[
-            Expanded(
-              child: SizedBox(
-                height: 30,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: 'Uber Eats Demo Search...',
-                    hintStyle: const TextStyle(color: Colors.black12),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 133, 131, 131),
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Container(
-                padding: const EdgeInsets.only(bottom: 50),
-                child: IconButton(
-                  icon: const Icon(Icons.notifications),
-                  color: const Color.fromARGB(255, 133, 131, 131),
-                  onPressed: () {},
-                ))
-          ],
-        ),
-      ),
-      body: const Center(),
+    return const Center(
+      child: Text('Profile Screen Content'),
     );
   }
 }
