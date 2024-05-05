@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'HomeScreen.dart';
+import 'GroceryScreen.dart';
+import 'SearchScreen.dart';
+import 'CartScreen.dart';
+import 'ProfileScreen.dart';
+import 'NotificationScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,7 +71,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: IconButton(
                 icon: const Icon(Icons.notifications),
                 color: const Color.fromARGB(255, 133, 131, 131),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NotificationScreen()));
+                },
               ),
             ),
           ],
@@ -100,7 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
             label: "Profile",
           ),
         ],
-        selectedItemColor: Colors.blue,
+        selectedItemColor: const Color.fromARGB(255, 255, 255, 255),
+        unselectedItemColor: const Color.fromARGB(255, 133, 131, 131),
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -126,60 +138,5 @@ class _MyHomePageState extends State<MyHomePage> {
       default:
         return Container();
     }
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen Content'),
-    );
-  }
-}
-
-class GroceryScreen extends StatelessWidget {
-  const GroceryScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Grocery Screen Content'),
-    );
-  }
-}
-
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Search Screen Content'),
-    );
-  }
-}
-
-class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Cart Screen Content'),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Profile Screen Content'),
-    );
   }
 }
