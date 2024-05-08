@@ -5,8 +5,19 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen Content'),
-    );
+    return const Scaffold(
+        body: Column(
+      children: <Widget>[
+        //Create cards
+        Card(
+          child: ListTile(
+            title: Text('Grocery'),
+            subtitle: Text('Grocery Screen Content'),
+            //insert an image in this card as background
+            leading: Image.asset('assets/grocery.jpg'),
+          ),
+        ),
+      ],
+    ));
   }
 }
