@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'HomeScreen.dart';
-import 'GroceryScreen.dart';
-import 'SearchScreen.dart';
-import 'CartScreen.dart';
-import 'ProfileScreen.dart';
-import 'NotificationScreen.dart';
+import 'home_screen.dart';
+import 'grocery_screen.dart';
+import 'search_screen.dart';
+import 'cart_screen.dart';
+import 'profile_screen.dart';
+import 'notification_screen.dart';
 
 void main() {
   runApp(const MyApp());
