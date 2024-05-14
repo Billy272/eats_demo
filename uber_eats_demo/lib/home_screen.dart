@@ -19,6 +19,11 @@ class HomeScreen extends StatelessWidget {
                   context, '/uber_eats_demo/lib/grocery_screen.dart');
             },
           ),
+          ImageCard(
+              imagePath:
+                  "https://www.tastingtable.com/img/gallery/what-makes-restaurant-burgers-taste-different-from-homemade-burgers-upgrade/intro-1662064407.webp",
+              initials: "Burgers",
+              onPressed: () {})
         ],
       ),
     );
@@ -40,6 +45,7 @@ class ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: const Color.fromARGB(255, 88, 84, 84),
       child: InkWell(
         onTap: onPressed,
         child: Column(
@@ -50,12 +56,49 @@ class ImageCard extends StatelessWidget {
               width: double.infinity,
               height: 200,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
             Text(
               initials,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final void Function() onPressed;
+
+  const RoundIconButton({
+    required this.icon,
+    required this.title,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onPressed,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Icon(icon, size: 20),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
               ),
             ),
           ],
