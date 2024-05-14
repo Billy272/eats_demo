@@ -6,39 +6,60 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: <Widget>[
-        _buildCard("Grocery", "Cheap", "Find grocery at a cheaper price.",
-            'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffree-backgrounds-photos%2Fgroceries-pictures&psig=AOvVaw2RUHyoZj3JyL2PVEeuw2GD&ust=1715492177749000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNjtksjwhIYDFQAAAAAdAAAAABAJ'),
-        _buildCard("Burgers", "Cheap", "The best burgers in town.",
-            'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tastingtable.com%2F834391%2Fwhat-makes-restaurant-burgers-taste-different-from-homemade-burgers%2F&psig=AOvVaw1LKj3QK7qqttS43CUTOY3M&ust=1715492326255000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDd4ozxhIYDFQAAAAAdAAAAABAE'),
-      ],
-    ));
-  }
-
-  Widget _buildCard(
-      String title, String subtitle, String description, String imageUrl) {
-    return Card(
-      child: Column(
+      backgroundColor: const Color.fromARGB(255, 36, 36, 36),
+      body: ListView(
+        padding: const EdgeInsets.all(10),
         children: <Widget>[
-          Image.network(
-            imageUrl,
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: 200,
-          ),
-          ListTile(
-            title: Text(title),
-            subtitle: Text(description),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              description,
-              textAlign: TextAlign.left,
-            ),
+          ImageCard(
+            imagePath:
+                'https://img.freepik.com/free-photo/real-food-pyramid-assortment-top-view_23-2150238927.jpg?t=st=1715670103~exp=1715673703~hmac=180a540e519a02074c8b01051bfe5f69ac695b6d2c943a108207ab89bdadedad&w=740',
+            initials: 'Grocery',
+            onPressed: () {
+              Navigator.pushNamed(
+                  context, '/uber_eats_demo/lib/grocery_screen.dart');
+            },
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ImageCard extends StatelessWidget {
+  final String imagePath;
+  final String initials;
+  final void Function() onPressed;
+
+  // ignore: use_key_in_widget_constructors
+  const ImageCard({
+    required this.imagePath,
+    required this.initials,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: InkWell(
+        onTap: onPressed,
+        child: Column(
+          children: <Widget>[
+            Image.network(
+              imagePath,
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: 200,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              initials,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
