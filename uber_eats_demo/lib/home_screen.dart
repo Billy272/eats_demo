@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
 import 'notification_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<Map<String, dynamic>> myCategories = [
+    {
+      'icon': Icons.fastfood,
+      'title': 'Pizza',
+      'onPressed': () {},
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +104,7 @@ class ImageCard extends StatelessWidget {
       color: const Color.fromARGB(255, 88, 84, 84),
       child: InkWell(
         onTap: onPressed,
+        borderRadius: BorderRadius.circular(10),
         child: Column(
           children: <Widget>[
             Image.network(
@@ -146,6 +160,31 @@ class RoundIconButton extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CategoryList extends StatelessWidget {
+  final List<Map<String, dynamic>> categories; // List of category data
+
+  const CategoryList({super.key, required this.categories});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100.0, // Set list view height
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        itemBuilder: (context, index) {
+          final category = categories[index];
+          return RoundIconButton(
+            icon: category['icon'],
+            title: category['title'],
+            onPressed: () => Navigator.pushNamed(context, category['route']),
+          );
+        },
       ),
     );
   }
