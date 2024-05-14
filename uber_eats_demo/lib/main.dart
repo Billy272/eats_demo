@@ -4,7 +4,6 @@ import 'grocery_screen.dart';
 import 'search_screen.dart';
 import 'cart_screen.dart';
 import 'profile_screen.dart';
-import 'notification_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,48 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        toolbarHeight: 85,
-        title: Row(
-          children: <Widget>[
-            Expanded(
-              child: SizedBox(
-                height: 30,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: 'Uber Eats Demo Search...',
-                    hintStyle: const TextStyle(color: Colors.black12),
-                    filled: true,
-                    fillColor: const Color.fromARGB(255, 133, 131, 131),
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Container(
-              padding: const EdgeInsets.only(bottom: 50),
-              child: IconButton(
-                icon: const Icon(Icons.notifications),
-                color: const Color.fromARGB(255, 133, 131, 131),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NotificationScreen()));
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
       body: _buildBody(),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
