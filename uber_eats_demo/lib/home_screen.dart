@@ -9,14 +9,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Map<String, dynamic>> myCategories = [
-    {
-      'icon': Icons.fastfood,
-      'title': 'Pizza',
-      'onPressed': () {},
-    }
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +58,55 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: <Widget>[
+          const CategoryList(
+            categories: [
+              {
+                'icon': Icons.fastfood,
+                'title': 'Fast \n Food',
+                'route': '/uber_eats_demo/lib/fast_food_screen.dart',
+              },
+              {
+                'icon': Icons.restaurant,
+                'title': 'Restaurants',
+                'route': '/uber_eats_demo/lib/restaurant_screen.dart',
+              },
+              {
+                'icon': Icons.local_grocery_store,
+                'title': 'Grocery',
+                'route': '/uber_eats_demo/lib/grocery_screen.dart',
+              },
+              {
+                'icon': Icons.local_pizza,
+                'title': 'Pizza',
+                'route': '/uber_eats_demo/lib/pizza_screen.dart',
+              },
+              {
+                'icon': Icons.local_cafe,
+                'title': 'Coffee',
+                'route': '/uber_eats_demo/lib/cafe_screen.dart',
+              },
+              {
+                'icon': Icons.local_bar,
+                'title': 'Bar',
+                'route': '/uber_eats_demo/lib/bar_screen.dart',
+              },
+              {
+                'icon': Icons.local_dining,
+                'title': 'Dining',
+                'route': '/uber_eats_demo/lib/dining_screen.dart',
+              },
+              {
+                'icon': Icons.local_drink,
+                'title': 'Drinks',
+                'route': '/uber_eats_demo/lib/drink_screen.dart',
+              },
+              {
+                'icon': Icons.food_bank,
+                'title': 'Burgers',
+                'route': '/uber_eats_demo/lib/burger_screen.dart',
+              },
+            ],
+          ),
           ImageCard(
             imagePath:
                 'https://img.freepik.com/free-photo/real-food-pyramid-assortment-top-view_23-2150238927.jpg?t=st=1715670103~exp=1715673703~hmac=180a540e519a02074c8b01051bfe5f69ac695b6d2c943a108207ab89bdadedad&w=740',
@@ -173,7 +214,7 @@ class CategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100.0, // Set list view height
+      height: 70.0, // Set list view height
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
