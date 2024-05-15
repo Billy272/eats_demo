@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               {
                 'icon': Icons.restaurant,
-                'title': 'Restaurants',
+                'title': 'Resta\nurants',
                 'route': '/uber_eats_demo/lib/restaurant_screen.dart',
               },
               {
