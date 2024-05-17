@@ -185,7 +185,30 @@ class RoundIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: const Color.fromARGB(196, 220, 217, 217),
+      borderRadius: BorderRadius.circular(10),
+      //spacing between the icon and the text
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: InkWell(
+          onTap: onPressed,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(icon, size: 20),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Roboto',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      
       child: InkWell(
         child: Column(
           mainAxisSize: MainAxisSize.min,
