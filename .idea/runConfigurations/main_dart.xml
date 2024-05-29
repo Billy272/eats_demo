@@ -3,6 +3,7 @@
     <option name="filePath" value="$PROJECT_DIR$/uber_eats_demo/lib/main.dart" />
     <method v="2">
       <option name="Gradle.BeforeRunTask" enabled="true" tasks="" externalProjectPath="$PROJECT_DIR$" vmOptions="" scriptParameters="" />
+      <option name="LaunchBrowser.Before.Run" />
     </method>
   </configuration>
 </component>

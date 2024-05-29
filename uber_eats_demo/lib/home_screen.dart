@@ -208,23 +208,6 @@ class RoundIconButton extends StatelessWidget {
           ),
         ),
       ),
-      
-      child: InkWell(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Icon(icon, size: 20),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Roboto',
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

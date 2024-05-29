@@ -1,3 +1,7 @@
 {
-    "cmake.sourceDirectory": "/home/billy/Documents/eats_demo/uber_eats_demo/linux"
+    "cmake.sourceDirectory": "/home/billy/Documents/eats_demo/uber_eats_demo/linux",
+    "cSpell.words": [
+        "fastfood",
+        "Resta"
+    ]
 }
